@@ -5,6 +5,10 @@ public class Senaka{
         s1 = new Senaka();
         s1.sendMessage();
     }
+    public void feedback(String m){
+        msg = m;
+        System.out.println(msg);
+    }
     public void sendMessage(){
         Lakshan l1 = new Lakshan();
         l1.setMsg(s1.getMsg(),s1);
@@ -21,9 +25,13 @@ class Lakshan{
     public void setMsg(String msg, Senaka s){
         this.msg = msg;
         s1=s;
+        System.out.println("Lakshan says : "+msg);
+        sendMessage();
     }
     public void sendMessage(){
-        
+        Shashika sh1 = new Shashika();
+        sh1.setMsg(getMsg(),s1);
+
     }
     public String getMsg(){
         return msg;
@@ -34,10 +42,14 @@ class Shashika{
     public Senaka s1;
     
     public void setMsg(String msg, Senaka s){
-
+        this.msg = msg;
+        s1=s;
+        System.out.println("Shashika says : "+msg);
+        sendMessage();
     }
     public void sendMessage(){
-
+        Mewan mew1 = new Mewan();
+        mew1.setMsg(getMsg(),s1);
     }
     public String getMsg(){
         return msg;
@@ -49,12 +61,16 @@ class Mewan{
     public Senaka s1;
     
     public void setMsg(String msg, Senaka s){
-
+        this .msg = msg;
+        s1=s;
+        System.out.println("Mewan says : "+msg);
+        sendMessage();
     }
     public void sendMessage(){
+        s1.feedback(getMsg());
 
     }
     public String getMsg(){
-        return msg;
+        return "sir i'm mewan i got ur msg :"+ msg;
     }
 }
